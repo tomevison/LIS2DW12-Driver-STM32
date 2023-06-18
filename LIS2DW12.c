@@ -30,7 +30,7 @@ HAL_StatusTypeDef LIS2_Init(LIS2 *dev, I2C_HandleTypeDef *hi2c1){
 	ret = HAL_I2C_Mem_Write(hi2c1, (LISaddr<<1), LIS2DW12_REG_CTRL2, I2C_MEMADD_SIZE_8BIT, &buf[0], 1, i2cTout);
 
 	// Control Register 3
-	buf[0] = (ST<<5)|(PP_OD<<4)|(LIR<<3) |(H_LACTIVE<<2) | (SLP_MODE_SEL<<1) | SLP_MODE_1;
+	buf[0] = (ST<<6)|(PP_OD<<5)|(LIR<<4) |(H_LACTIVE<<3) | (SLP_MODE_SEL<<1) | SLP_MODE_1;
 	ret = HAL_I2C_Mem_Write(hi2c1, (LISaddr<<1), LIS2DW12_REG_CTRL3, I2C_MEMADD_SIZE_8BIT, &buf[0], 1, i2cTout);
 
 	// Control Register 6
